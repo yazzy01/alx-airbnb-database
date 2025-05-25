@@ -57,6 +57,35 @@ This file contains SQL queries demonstrating aggregation functions and window fu
 - **Result**: Returns properties with their booking counts and rankings
 - **Note**: Demonstrates the difference between ROW_NUMBER (unique sequential numbers) and RANK (same rank for ties)
 
+## database_index.sql
+
+This file contains SQL commands to create indexes for optimizing query performance:
+
+### 1. User Table Indexes
+- **Columns**: email, role
+- **Purpose**: Optimize user lookups and filtering
+
+### 2. Property Table Indexes
+- **Columns**: host_id, location, pricepernight
+- **Purpose**: Optimize property searches and joins
+
+### 3. Booking Table Indexes
+- **Columns**: property_id, user_id, status, start_date, end_date
+- **Purpose**: Optimize booking lookups and date range queries
+
+### 4. Review and Payment Table Indexes
+- **Columns**: Various foreign keys and frequently filtered columns
+- **Purpose**: Optimize related table operations
+
+## index_performance.md
+
+This document analyzes the performance improvements achieved by adding indexes:
+
+- Identifies high-usage columns in the database
+- Provides before/after performance measurements
+- Quantifies the performance improvements
+- Offers recommendations for index management
+
 ## Usage
 
-These queries can be executed against the AirBnB database to analyze relationships between entities and extract specific insights from the data. 
+These queries and indexes can be executed against the AirBnB database to analyze relationships between entities, extract specific insights from the data, and optimize database performance. 
