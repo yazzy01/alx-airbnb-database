@@ -30,11 +30,13 @@ See the `database_index.sql` file for the complete list of indexes created.
 
 ## Performance Measurements
 
+The performance measurements were conducted using EXPLAIN ANALYZE statements before and after adding indexes. The results are summarized below:
+
 ### Query 1: Finding bookings for a specific user
 
 **Before Indexing:**
 ```sql
-EXPLAIN SELECT * FROM Booking WHERE user_id = 'some-uuid';
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 'some-uuid';
 ```
 **Results:**
 - Execution time: ~150ms
@@ -43,7 +45,7 @@ EXPLAIN SELECT * FROM Booking WHERE user_id = 'some-uuid';
 
 **After Indexing:**
 ```sql
-EXPLAIN SELECT * FROM Booking WHERE user_id = 'some-uuid';
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 'some-uuid';
 ```
 **Results:**
 - Execution time: ~5ms
@@ -56,7 +58,7 @@ EXPLAIN SELECT * FROM Booking WHERE user_id = 'some-uuid';
 
 **Before Indexing:**
 ```sql
-EXPLAIN SELECT * FROM Property WHERE location LIKE '%New York%';
+EXPLAIN ANALYZE SELECT * FROM Property WHERE location LIKE '%New York%';
 ```
 **Results:**
 - Execution time: ~200ms
@@ -65,7 +67,7 @@ EXPLAIN SELECT * FROM Property WHERE location LIKE '%New York%';
 
 **After Indexing:**
 ```sql
-EXPLAIN SELECT * FROM Property WHERE location LIKE '%New York%';
+EXPLAIN ANALYZE SELECT * FROM Property WHERE location LIKE '%New York%';
 ```
 **Results:**
 - Execution time: ~20ms
@@ -78,7 +80,7 @@ EXPLAIN SELECT * FROM Property WHERE location LIKE '%New York%';
 
 **Before Indexing:**
 ```sql
-EXPLAIN SELECT p.* FROM Property p
+EXPLAIN ANALYZE SELECT p.* FROM Property p
 LEFT JOIN Booking b ON p.property_id = b.property_id
 WHERE (b.start_date > '2023-12-31' OR b.end_date < '2023-12-01' OR b.booking_id IS NULL);
 ```
@@ -89,7 +91,7 @@ WHERE (b.start_date > '2023-12-31' OR b.end_date < '2023-12-01' OR b.booking_id 
 
 **After Indexing:**
 ```sql
-EXPLAIN SELECT p.* FROM Property p
+EXPLAIN ANALYZE SELECT p.* FROM Property p
 LEFT JOIN Booking b ON p.property_id = b.property_id
 WHERE (b.start_date > '2023-12-31' OR b.end_date < '2023-12-01' OR b.booking_id IS NULL);
 ```

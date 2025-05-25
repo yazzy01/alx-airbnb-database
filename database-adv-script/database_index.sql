@@ -1,3 +1,15 @@
+-- Performance measurement before adding indexes
+-- Query 1: Finding bookings for a specific user
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 'some-uuid';
+
+-- Query 2: Finding properties in a specific location
+EXPLAIN ANALYZE SELECT * FROM Property WHERE location LIKE '%New York%';
+
+-- Query 3: Finding available properties in a date range
+EXPLAIN ANALYZE SELECT p.* FROM Property p
+LEFT JOIN Booking b ON p.property_id = b.property_id
+WHERE (b.start_date > '2023-12-31' OR b.end_date < '2023-12-01' OR b.booking_id IS NULL);
+
 -- Indexes for User table
 -- Index on email for fast user lookups and authentication
 CREATE INDEX idx_user_email ON User(email);
@@ -43,4 +55,16 @@ CREATE INDEX idx_review_rating ON Review(rating);
 CREATE INDEX idx_payment_booking_id ON Payment(booking_id);
 
 -- Index on payment_method for filtering payments by method
-CREATE INDEX idx_payment_method ON Payment(payment_method); 
+CREATE INDEX idx_payment_method ON Payment(payment_method);
+
+-- Performance measurement after adding indexes
+-- Query 1: Finding bookings for a specific user
+EXPLAIN ANALYZE SELECT * FROM Booking WHERE user_id = 'some-uuid';
+
+-- Query 2: Finding properties in a specific location
+EXPLAIN ANALYZE SELECT * FROM Property WHERE location LIKE '%New York%';
+
+-- Query 3: Finding available properties in a date range
+EXPLAIN ANALYZE SELECT p.* FROM Property p
+LEFT JOIN Booking b ON p.property_id = b.property_id
+WHERE (b.start_date > '2023-12-31' OR b.end_date < '2023-12-01' OR b.booking_id IS NULL); 
