@@ -1,6 +1,6 @@
-# Advanced SQL Queries - Joins
+# Advanced SQL Queries
 
-This directory contains SQL scripts demonstrating different types of JOIN operations in SQL.
+This directory contains SQL scripts demonstrating advanced SQL query techniques.
 
 ## joins_queries.sql
 
@@ -24,6 +24,22 @@ This file contains three SQL queries showcasing different JOIN types:
 - **Join Condition**: `u.user_id = b.user_id`
 - **Result**: Returns all records from both tables; NULL values appear where there is no match
 
+## subqueries.sql
+
+This file contains SQL queries demonstrating different types of subqueries:
+
+### 1. Non-correlated Subquery
+- **Purpose**: Finds all properties where the average rating is greater than 4.0
+- **Tables Used**: `Property` and `Review`
+- **Approach**: Uses a subquery in the WHERE clause with the IN operator
+- **Result**: Returns properties that meet the rating criteria
+
+### 2. Correlated Subquery
+- **Purpose**: Finds users who have made more than 3 bookings
+- **Tables Used**: `User` and `Booking`
+- **Approach**: Uses a correlated subquery that references the outer query
+- **Result**: Returns users who meet the booking count criteria
+
 ## Usage
 
-These queries can be executed against the AirBnB database to analyze relationships between entities. 
+These queries can be executed against the AirBnB database to analyze relationships between entities and extract specific insights from the data. 
