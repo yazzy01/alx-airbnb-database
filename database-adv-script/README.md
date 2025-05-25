@@ -134,6 +134,31 @@ This document analyzes the benefits of table partitioning:
 - Addresses challenges and considerations
 - Offers recommendations for partition management
 
+## performance_monitoring.md
+
+This document outlines the continuous monitoring and optimization of database performance:
+
+### 1. Monitoring Methodology
+- **Approach**: Systematic process for identifying, analyzing, and improving slow queries
+- **Tools**: Uses EXPLAIN ANALYZE to examine query execution plans and resource usage
+- **Metrics**: Tracks execution time, scan types, join methods, and rows processed
+
+### 2. Query Performance Analysis
+- **Original Queries**: Documents execution plans and performance of three critical queries
+- **Bottlenecks**: Identifies specific performance issues in each query
+- **Improvements**: Implements targeted optimizations including indexes, query rewrites, and materialized views
+- **Results**: Measures and quantifies performance improvements (56-89% faster)
+
+### 3. Schema-Level Optimizations
+- **Indexing Strategy**: Covering indexes, composite indexes, and specialized indexes
+- **Materialized Views**: Pre-computed aggregations for analytics queries
+- **Query Patterns**: Guidelines for efficient query writing
+
+### 4. Ongoing Maintenance
+- **Monitoring Plan**: Scheduled performance reviews and index usage analysis
+- **Maintenance Tasks**: Regular database maintenance operations
+- **Future Optimizations**: Continuous improvement recommendations
+
 ## Usage
 
 These queries and optimization techniques can be executed against the AirBnB database to analyze relationships between entities, extract specific insights from the data, and optimize database performance. 
