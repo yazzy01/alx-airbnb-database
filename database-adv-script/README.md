@@ -40,6 +40,23 @@ This file contains SQL queries demonstrating different types of subqueries:
 - **Approach**: Uses a correlated subquery that references the outer query
 - **Result**: Returns users who meet the booking count criteria
 
+## aggregations_and_window_functions.sql
+
+This file contains SQL queries demonstrating aggregation functions and window functions:
+
+### 1. Aggregation with GROUP BY
+- **Purpose**: Finds the total number of bookings made by each user
+- **Tables Used**: `User` and `Booking`
+- **Functions Used**: COUNT, GROUP BY
+- **Result**: Returns each user with their total booking count
+
+### 2. Window Functions
+- **Purpose**: Ranks properties based on the total number of bookings they have received
+- **Tables Used**: `Property` and `Booking`
+- **Functions Used**: COUNT, ROW_NUMBER, RANK
+- **Result**: Returns properties with their booking counts and rankings
+- **Note**: Demonstrates the difference between ROW_NUMBER (unique sequential numbers) and RANK (same rank for ties)
+
 ## Usage
 
 These queries can be executed against the AirBnB database to analyze relationships between entities and extract specific insights from the data. 
