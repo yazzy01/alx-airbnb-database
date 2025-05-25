@@ -86,6 +86,30 @@ This document analyzes the performance improvements achieved by adding indexes:
 - Quantifies the performance improvements
 - Offers recommendations for index management
 
+## perfomance.sql
+
+This file contains complex queries demonstrating query optimization:
+
+### 1. Original Complex Query
+- **Purpose**: Retrieves all bookings with user, property, host, payment, and review details
+- **Tables Used**: `Booking`, `User` (twice), `Property`, `Payment`, `Review`
+- **Performance**: Shows the execution plan and performance of the unoptimized query
+
+### 2. Optimized Query
+- **Purpose**: Retrieves essential booking information with improved performance
+- **Tables Used**: `Booking`, `User`, `Property`, `Payment`
+- **Optimizations**: Reduces joins, selects only necessary columns, leverages indexes
+- **Performance**: Shows the execution plan and improved performance metrics
+
+## optimization_report.md
+
+This document provides a detailed analysis of query optimization:
+
+- Identifies performance issues in the original complex query
+- Explains the optimization strategies implemented
+- Quantifies the performance improvements
+- Provides additional recommendations for further optimization
+
 ## Usage
 
 These queries and indexes can be executed against the AirBnB database to analyze relationships between entities, extract specific insights from the data, and optimize database performance. 
