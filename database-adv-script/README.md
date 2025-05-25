@@ -110,6 +110,30 @@ This document provides a detailed analysis of query optimization:
 - Quantifies the performance improvements
 - Provides additional recommendations for further optimization
 
+## partitioning.sql
+
+This file implements table partitioning for the Booking table:
+
+### 1. Partitioning Implementation
+- **Purpose**: Creates a partitioned version of the Booking table using RANGE partitioning on start_date
+- **Approach**: Divides data into quarterly partitions for 2023-2024 with a default partition
+- **Structure**: Creates a new table structure with the same columns and constraints
+
+### 2. Performance Testing
+- **Purpose**: Compares query performance before and after partitioning
+- **Queries**: Tests simple date range queries and complex join queries
+- **Results**: Demonstrates significant performance improvements for date-filtered queries
+
+## partition_performance.md
+
+This document analyzes the benefits of table partitioning:
+
+- Explains the partitioning strategy and implementation
+- Provides detailed performance measurements before and after partitioning
+- Documents the benefits beyond raw performance (data management, maintenance, scalability)
+- Addresses challenges and considerations
+- Offers recommendations for partition management
+
 ## Usage
 
-These queries and indexes can be executed against the AirBnB database to analyze relationships between entities, extract specific insights from the data, and optimize database performance. 
+These queries and optimization techniques can be executed against the AirBnB database to analyze relationships between entities, extract specific insights from the data, and optimize database performance. 
